@@ -34,12 +34,6 @@ jobs:
         run: |
           if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
           renv::restore()
-
-      # Use GitHub Actions' cache to cache dependencies on servers
-      # - name: Cache 🪵
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: vendor/bundle
-      #     key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-gems-
+      - name: Grade homework 📚
+        run: testthat::test_dir('.tests/testthat/')
+        shell: Rscript {0}
