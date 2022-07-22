@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+      - name: R version 
+        run: R --version
       # Use GitHub Actions' cache to cache dependencies on servers
       # - name: Cache 🪵
       #   uses: actions/cache@v2
