@@ -20,6 +20,8 @@ jobs:
           r-version: '4.1.1' # The R version to download (if necessary) and use.
       - name: Checks R version 💻
         run: R --version
+      - name: Install libcurl 💻 
+        run: sudo apt-get update -y && sudo apt-get install -y libcurl4-openssl-dev 
       - name: Cache packages 📱
         uses: actions/cache@v1
         with:
