@@ -39,6 +39,8 @@ jobs:
   grade_homework:
     runs-on: ubuntu-latest
     needs: system_setup
+    env:
+      RENV_PATHS_ROOT: ~/.local/share/renv
     steps:
       - name: Grade homework 📚
         run: testthat::test_dir('.tests/testthat/')
