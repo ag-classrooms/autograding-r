@@ -7,7 +7,8 @@ permissions:
   contents: write
       
 jobs:
-  checkout:
+  # Let's configure the system
+  system_setup:
     runs-on: ubuntu-latest
     env:
       RENV_PATHS_ROOT: ~/.local/share/renv
@@ -34,6 +35,10 @@ jobs:
         run: |
           if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
           renv::restore()
+  # Let's grade your homework
+  grade_homework:
+    needs: system_setup
+    steps:
       - name: Grade homework 📚
         run: testthat::test_dir('.tests/testthat/')
         shell: Rscript {0}
