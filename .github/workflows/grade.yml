@@ -1,4 +1,4 @@
-name: Grade homework 
+name: Homework grading
 on:
   push:
     branches:
