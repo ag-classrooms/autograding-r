@@ -15,6 +15,9 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
       - name: R version 💻
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.1.1' # The R version to download (if necessary) and use.
         run: R --version
       - name: Cache packages 📱
         uses: actions/cache@v1
@@ -23,11 +26,11 @@ jobs:
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
             ${{ runner.os }}-renv-
-      - name: Restore packages 🛖
-        shell: Rscript {0}
-        run: |
-          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
-          renv::restore()
+      # - name: Restore packages 🛖
+      #   shell: Rscript {0}
+      #   run: |
+      #     if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+      #     renv::restore()
 
       # Use GitHub Actions' cache to cache dependencies on servers
       # - name: Cache 🪵
