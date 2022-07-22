@@ -1,4 +1,4 @@
-name: Grade homework
+name: Grade homework 
 on:
   push:
     branches:
@@ -13,5 +13,10 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
       # Use GitHub Actions' cache to cache dependencies on servers
-      - name: Cache 🪵
-        uses: actions/cache@v2
+      # - name: Cache 🪵
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: vendor/bundle
+      #     key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-gems-
