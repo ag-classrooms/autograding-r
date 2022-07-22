@@ -27,11 +27,11 @@ jobs:
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
             ${{ runner.os }}-renv-
-      # - name: Restore packages 🛖
-      #   shell: Rscript {0}
-      #   run: |
-      #     if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
-      #     renv::restore()
+      - name: Restore packages 🛖
+        shell: Rscript {0}
+        run: |
+          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+          renv::restore()
 
       # Use GitHub Actions' cache to cache dependencies on servers
       # - name: Cache 🪵
