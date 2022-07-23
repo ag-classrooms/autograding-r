@@ -2,15 +2,18 @@ name: Homework grading
 on:
   push:
     branches:
-      - main  
+      - main
 permissions:
   contents: write
-      
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true  
 jobs:
   # Let's configure the system
   grading_workflow:
     # Using ubuntu 20.04 freezes R version implicitly to 4.2.1 (release)
-    runs-on: ubuntu-20.04
+    runs-on:
+      ubuntu-20.04
     env:
       RENV_PATHS_ROOT: ~/.local/share/renv
     steps:
