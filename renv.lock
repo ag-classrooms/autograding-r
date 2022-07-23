@@ -9,6 +9,13 @@
     ]
   },
   "Packages": {
+    "DiceKriging": {
+      "Package": "DiceKriging",
+      "Version": "1.6.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "033765b87e28c58cb80809cc668a9623"
+    },
     "KernSmooth": {
       "Package": "KernSmooth",
       "Version": "2.23-20",
