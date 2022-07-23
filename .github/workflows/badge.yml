@@ -11,6 +11,7 @@ concurrency:
 jobs:
   # Let's change the badge =====================================================
   repo_setup:
+    needs: grading_workflow
     runs-on: ubuntu-20.04
     if:      ${{ contains(github.actor,'classroom' )}}
     steps:
