@@ -9,15 +9,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true  
 jobs:
-  # Let's change the badge =====================================================
-  repo_setup:
-    runs-on:
-      ubuntu-20.04
-    if:
-      ${{ contains(github.actor, 'classroom')}}
-    steps:
-      - name: Greeting the bot 🤖
-        run: echo Hello ${{ github.actor }}
   # Let's configure the system =================================================
   grading_workflow:
     # Using ubuntu 20.04 freezes R version implicitly to 4.2.1 (release)
