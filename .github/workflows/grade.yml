@@ -20,6 +20,7 @@ jobs:
         run: echo Hello ${{ github.actor }}
   # Let's configure the system =================================================
   grading_workflow:
+    needs: repo_setup
     # Using ubuntu 20.04 freezes R version implicitly to 4.2.1 (release)
     runs-on:
       ubuntu-20.04
