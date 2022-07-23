@@ -2,7 +2,7 @@ name: Setup badge
 on:
   push:
     branches:
-      - main
+      - feedback
 permissions:
   contents: write
 concurrency: 
@@ -11,7 +11,6 @@ concurrency:
 jobs:
   # Let's change the badge =====================================================
   repo_setup:
-    needs: grading_workflow
     runs-on: ubuntu-20.04
     if:      ${{ contains(github.actor,'classroom' )}}
     steps:
