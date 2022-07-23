@@ -35,5 +35,5 @@ jobs:
           renv::restore()
       # Let's grade your homework
       - name: Grade homework 📚
-        run: Rscript .run_grade.R
+        run: Rscript .tests/grade.R
       
