@@ -1,0 +1,29 @@
+# Assignemnt title 
+
+Usually my assignments looks like this. First a setup block where libraries are
+loaded. 
+
+```{r setup}
+
+knitr::opts_chunk$set(purl = FALSE)
+
+```
+
+
+First, I ask students to write the solutions as functions. 
+
+```{r first solution, purl = TRUE}
+test <- function(nsamples){
+    rnorm(nsamples)
+}
+```
+
+Then, the students should see their functions work on a set of examples within 
+the assignment. 
+
+```{r}
+
+length(test(100))
+
+```
+
