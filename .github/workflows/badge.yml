@@ -2,7 +2,7 @@ name: Setup badge
 on:
   push:
     branches:
-      - feedback
+      - main
 permissions:
   contents: write
 concurrency: 
