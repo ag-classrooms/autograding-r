@@ -1,6 +1,9 @@
 name: Classroom Workflow
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 permissions:
   checks: write
