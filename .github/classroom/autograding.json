@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "auto entrega",
+      "setup": "",
+      "run": "Rscript .tests/grade.R",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}
