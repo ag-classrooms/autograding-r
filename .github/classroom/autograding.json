@@ -1,7 +1,7 @@
 {
   "tests": [
     {
-      "name": "auto entrega",
+      "name": "Assignment evaluation",
       "setup": "",
       "run": "Rscript .tests/grade.R",
       "input": "",
