@@ -14,7 +14,7 @@ First, I ask students to write the solutions as functions.
 
 ```{r first solution, purl = TRUE}
 test <- function(nsamples){
-    rnorm(nsamples)
+    runif(nsamples)
 }
 ```
 
