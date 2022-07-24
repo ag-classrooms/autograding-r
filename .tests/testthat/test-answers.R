@@ -11,3 +11,11 @@ test_that("power works", {
 test_that("simulated function" ,{
   expect_equal(length(test(10)), 10)
 })
+
+test_that("simulated max" ,{
+  expect_lte(max(test(10)), 1)
+})
+
+test_that("simulated min" ,{
+  expect_gte(min(test(10)), 0)
+})
