@@ -24,10 +24,6 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-      - name: Cache Docker images. 
-        uses: ScribeMD/docker-cache@0.2.1
-        with:
-          key: docker-${{ runner.os }}-${{ hashFiles(...) }}
       - name: Get a docker 📡
         run: docker pull agarbuno/env-simulacion
       - name: Say Hello!
