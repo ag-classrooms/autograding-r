@@ -35,7 +35,8 @@ jobs:
       - name: Checks R version 💻
         run: |
           docker run \
-          grader:latest ls -lha documentos
+          -v "${PATH_TRABAJO_HOST}:/home/rstudio/" \
+          grader:latest tree -L 3
           
       # - name: Checks R version 💻
       #   run: R --version
