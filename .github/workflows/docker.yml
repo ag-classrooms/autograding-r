@@ -16,7 +16,7 @@ concurrency:
   
 jobs:
   build:
-    name: Autograding
+    name: Docker build
     runs-on: ubuntu-20.04
     if:      ${{ !contains(github.actor,'classroom' )}}
     env:
