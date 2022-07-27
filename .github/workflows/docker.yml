@@ -24,8 +24,13 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-      - name: Get a docker 📡
-        run: docker pull agarbuno/env-simulacion
+      - name: Build a docker 📡
+        uses: whoan/docker-build-with-cache-action@v5
+        with:
+          image_name: env-simulacion
+          push_image_and_stages: false
+          dockerfile: .test/Dockerfile
+          
       # - name: Checks R version 💻
       #   run: R --version
       # - name: Cache packages 📱
