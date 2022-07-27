@@ -43,5 +43,5 @@ jobs:
         run: |
           docker run \
           -v "${GITHUB_WORKSPACE}:/home/rstudio/" \
-          agarbuno/grader:latest Rscript .tests/grade.R
+          agarbuno/grader:4.2.1 Rscript .tests/grade.R
         
