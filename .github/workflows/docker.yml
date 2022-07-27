@@ -27,6 +27,7 @@ jobs:
       - name: Build a docker 📡
         uses: whoan/docker-build-with-cache-action@v5
         with:
+          username: $${ github.actor }}
           image_name: env-simulacion
           push_image_and_stages: false
           dockerfile: .test/Dockerfile
