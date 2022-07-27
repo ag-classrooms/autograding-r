@@ -1,0 +1,42 @@
+name: Docker Build
+
+on:
+  push:
+    branches:
+      - ag/docker-build
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true  
+  
+jobs:
+  build:
+    name: Autograding
+    runs-on: ubuntu-20.04
+    if:      ${{ !contains(github.actor,'classroom' )}}
+    env:
+      RENV_PATHS_ROOT: ~/.local/share/renv
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      # - name: Checks R version 💻
+      #   run: R --version
+      # - name: Cache packages 📱
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: ${{ env.RENV_PATHS_ROOT }}
+      #     key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-renv-
+      # - name: Restore packages 🛖
+      #   shell: Rscript {0}
+      #   run: |
+      #     if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+      #     renv::restore()
+      # - name: Grade homework 📚
+      #   uses: education/autograding@v1
