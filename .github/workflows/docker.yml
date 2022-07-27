@@ -31,14 +31,11 @@ jobs:
           image_name: grader
           push_image_and_stages: false
           dockerfile: .tests/Dockerfile
-      - name: Check environment
-        run: |
-          ls -lha; tree -L 3
       - name: Checks R version 💻
         run: |
           docker run \
           -v "${GITHUB_WORKSPACE}:/home/rstudio/" \
-          grader:latest ls -lha
+          grader:latest Rscript .tests/grade.R
           
       # - name: Checks R version 💻
       #   run: R --version
