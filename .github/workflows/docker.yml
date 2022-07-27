@@ -28,9 +28,13 @@ jobs:
       - name: Build a docker 📡
         uses: whoan/docker-build-with-cache-action@v5
         with:
-          image_name: env-simulacion
+          image_name: grader
           push_image_and_stages: false
           dockerfile: .tests/Dockerfile
+      - name: Checks R version 💻
+        run: |
+          docker run \
+          grader:latest R --version
           
       # - name: Checks R version 💻
       #   run: R --version
