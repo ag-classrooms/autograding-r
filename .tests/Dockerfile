@@ -11,5 +11,4 @@ RUN adduser $RSTUDIO_USER sudo
 WORKDIR /home/$RSTUDIO_USER/
 VOLUME [ "/home/$RSTUDIO_USER/$TARGET_DIR" ]
 
-RUN R --version
 # CMD ["/init"]
