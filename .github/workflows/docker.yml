@@ -31,7 +31,7 @@ jobs:
           image_name: grader
           push_image_and_stages: false
           dockerfile: .tests/Dockerfile
-      - name: Checks R version 💻
+      - name: Grade homework 💻
         run: |
           docker run \
           -v "${GITHUB_WORKSPACE}:/home/rstudio/" \
