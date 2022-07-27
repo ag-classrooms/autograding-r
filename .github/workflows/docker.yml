@@ -24,11 +24,15 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+      - name: Cache Docker images. 
+        uses: ScribeMD/docker-cache@0.2.1
+        with:
+          key: docker-${{ runner.os }}-${{ hashFiles(...) }}
       - name: Get a docker 📡
         run: docker pull agarbuno/env-simulacion
       - name: Say Hello!
         run: |
-          docker run -it agarbuno/env-simulacion R --version
+          docker run -it agarbuno/env-simulacion /bin/echo "Hello world"
       # - name: Checks R version 💻
       #   run: R --version
       # - name: Cache packages 📱
