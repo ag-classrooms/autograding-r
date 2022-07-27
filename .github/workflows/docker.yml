@@ -30,7 +30,7 @@ jobs:
           username: $${ github.actor }}
           image_name: env-simulacion
           push_image_and_stages: false
-          dockerfile: .test/Dockerfile
+          dockerfile: .tests/Dockerfile
           
       # - name: Checks R version 💻
       #   run: R --version
