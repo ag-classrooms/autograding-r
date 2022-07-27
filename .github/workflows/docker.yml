@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - ag/docker-cache
+  workflow_dispatch:
 
 permissions:
   checks: write
@@ -30,9 +31,6 @@ jobs:
           image_name: env-simulacion
           push_image_and_stages: false
           dockerfile: .tests/Dockerfile
-      - name: Hello World!
-        run: |
-          docker run -it env-simulacion R --version
           
       # - name: Checks R version 💻
       #   run: R --version

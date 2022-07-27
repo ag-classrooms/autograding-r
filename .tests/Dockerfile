@@ -40,4 +40,4 @@ VOLUME [ "/home/$RSTUDIO_USER/$TARGET_DIR" ]
 RUN chmod -R 775 /home/$RSTUDIO_USER/$TARGET_DIR \
     && chmod -R g+s /home/$RSTUDIO_USER/$TARGET_DIR
 
-CMD ["/init"]
+# CMD ["/init"]
