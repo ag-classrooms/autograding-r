@@ -3,7 +3,7 @@ MAINTAINER Alfredo Garbuno Iñigo "alfredo.garbuno@itam.mx"
 
 # Declaramos al usuario, y las carpetas de trabajo
 ENV RSTUDIO_USER rstudio
-ENV TARGET_DIR documentos
+ENV TARGET_DIR .
 
 RUN adduser $RSTUDIO_USER sudo
 
