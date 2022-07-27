@@ -35,7 +35,7 @@ jobs:
       - name: Checks R version 💻
         run: |
           docker run \
-          grader:latest ls -lha
+          grader:latest ls -lha documentos
           
       # - name: Checks R version 💻
       #   run: R --version
