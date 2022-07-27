@@ -3,7 +3,7 @@
     {
       "name": "Assignment evaluation",
       "setup": "",
-      "run": "Rscript .tests/grade.R",
+      "run": "docker run -v "${GITHUB_WORKSPACE}:/home/rstudio/" grader:latest Rscript .tests/grade.R",
       "input": "",
       "output": "",
       "comparison": "included",

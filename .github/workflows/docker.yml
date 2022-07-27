@@ -36,6 +36,8 @@ jobs:
           docker run \
           -v "${GITHUB_WORKSPACE}:/home/rstudio/" \
           grader:latest Rscript .tests/grade.R
+      - name: Grade homework 📚
+        uses: education/autograding@v1
           
       # - name: Checks R version 💻
       #   run: R --version
