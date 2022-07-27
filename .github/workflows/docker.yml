@@ -22,7 +22,7 @@ jobs:
     if:      ${{ !contains(github.actor,'classroom' )}}
     env:
       RENV_PATHS_ROOT: ~/.local/share/renv
-      PATH_TRABAJO_HOST: ./
+      PATH_TRABAJO_HOST: ~/.
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
@@ -36,7 +36,7 @@ jobs:
         run: |
           docker run \
           -v "${PATH_TRABAJO_HOST}:/home/rstudio/" \
-          grader:latest tree -L 3
+          grader:latest ls -lha
           
       # - name: Checks R version 💻
       #   run: R --version
