@@ -1,4 +1,4 @@
-FROM agarbuno/env-simulacion
+FROM agarbuno/grader:4.2.1
 MAINTAINER Alfredo Garbuno Iñigo "alfredo.garbuno@itam.mx"
 
 # Declaramos al usuario, y las carpetas de trabajo
