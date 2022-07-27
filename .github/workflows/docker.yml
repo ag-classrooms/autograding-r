@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+      - name: Get a docker 📡
+        run: docker pull agarbuno/bayesiana
       # - name: Checks R version 💻
       #   run: R --version
       # - name: Cache packages 📱
