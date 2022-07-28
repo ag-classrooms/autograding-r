@@ -32,6 +32,7 @@ jobs:
         with:
           context: .
           file: .tests/Dockerfile
+          load: true
           push: false
           tags: agarbuno/gh-grader:4.2.1
           cache-from: type=gha
