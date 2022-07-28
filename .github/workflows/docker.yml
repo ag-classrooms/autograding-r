@@ -25,20 +25,11 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-      # - name: Set up Docker Buildx
-      #   uses: docker/setup-buildx-action@v2
-      # - name: Build and push
-      #   uses: docker/build-push-action@v3
-      #   with:
-      #     context: .
-      #     file: .tests/Dockerfile
-      #     push: false
-      #     tags: agarbuno/gh-grader:4.2.1
-      #     cache-from: type=gha
-      #     cache-to: type=gha,mode=max
-      - name: Grade homework 💻
+      - name: Checks environment
         run: |
-          docker run \
-          -v "${GITHUB_WORKSPACE}:/home/rstudio/" \
-          agarbuno/gh-grader:4.2.1 Rscript .tests/grade.R
-        
+           echo ${GITHUB_WORKSPACE}
+      - name: Prepares for workflow
+        run: |
+          sed -i "s|local-directory|${{ github.workspace }}|g" .github/classroom/autograding.json
+      - name: Grade homework 💻
+        uses: education/autograding@v1
