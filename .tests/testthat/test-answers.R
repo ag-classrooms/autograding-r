@@ -9,7 +9,7 @@ test_that("power works", {
 })
 
 test_that("simulated function" ,{
-  expect_equal(length(test(10)), 1)
+  expect_equal(length(test(10)), 10)
 })
 
 test_that("simulated max" ,{
