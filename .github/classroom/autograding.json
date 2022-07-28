@@ -3,7 +3,7 @@
     {
       "name": "Assignment evaluation",
       "setup": "",
-        "run": "bash run-grader.sh",
+        "run": "bash .github/classroom/run-grader.sh",
       "input": "",
       "output": "",
       "comparison": "included",
