@@ -36,13 +36,13 @@ jobs:
           context: .
           file: .tests/Dockerfile
           push: false
-          tags: agarbuno/grader:4.2.1
-          cache-from: type=registry,ref=agarbuno/grader:buildcache
-          cache-to: type=registry,ref=agarbuno/grader:buildcache,mode=max
+          tags: agarbuno/grader:local
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       -
         name: Grade homework 💻
         run: |
           docker run \
           -v "${GITHUB_WORKSPACE}:/home/rstudio/" \
-          agarbuno/grader:buildcache Rscript .tests/grade.R
+          agarbuno/grader:local Rscript .tests/grade.R
         
