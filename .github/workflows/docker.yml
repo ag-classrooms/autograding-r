@@ -34,10 +34,11 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
+          file: .tests/Dockerfile
           push: false
           tags: agarbuno/grader:4.2.1
-          cache-from: type=registry,ref=agarbuno/grader:buildcache
-          cache-to: type=registry,ref=agarbuno/grader:buildcache,mode=max
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       -
         name: Grade homework 💻
         run: |
