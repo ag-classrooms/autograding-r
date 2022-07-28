@@ -23,14 +23,11 @@ jobs:
     env:
       RENV_PATHS_ROOT: ~/.local/share/renv
     steps:
-      -
-        name: Checkout 🛎️
+      - name: Checkout 🛎️
         uses: actions/checkout@v3
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      -
-        name: Build and push
+      - name: Build and push
         uses: docker/build-push-action@v3
         with:
           context: .
@@ -39,8 +36,7 @@ jobs:
           tags: agarbuno/gh-grader:4.2.1
           cache-from: type=gha
           cache-to: type=gha,mode=max
-      -
-        name: Grade homework 💻
+      - name: Grade homework 💻
         run: |
           docker run \
           -v "${GITHUB_WORKSPACE}:/home/rstudio/" \
