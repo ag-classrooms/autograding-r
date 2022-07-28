@@ -30,7 +30,7 @@ jobs:
            echo ${GITHUB_WORKSPACE}
       - name: Prepares for workflow
         run: |
-          sed -i "s|local-directory|${{ github.workspace }}|g" .github/classroom/autograding.json
-          more .github/classroom/autograding.json
+          sed -i "s|local-directory|${{ github.workspace }}|g" .github/classroom/run-grader.sh
+          more .github/classroom/run-grader.sh
       - name: Grade homework 💻
         uses: education/autograding@v1
