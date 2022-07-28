@@ -32,8 +32,5 @@ jobs:
         run: |
           sed -i "s|local-directory|${{ github.workspace }}|g" .github/classroom/run-grader.sh
           more .github/classroom/run-grader.sh
-      # - name: Grade homework 💻
-      #   uses: education/autograding@v1
-      - name: Verification
-        run: |
-           docker run -v "/home/runner/work/autograding-r/autograding-r:/home/rstudio/" agarbuno:gh-grader:4.2.1 Rscript .tests/grade.R
+      - name: Grade homework 💻
+        uses: education/autograding@v1
