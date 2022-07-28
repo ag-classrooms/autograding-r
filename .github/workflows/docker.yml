@@ -31,5 +31,6 @@ jobs:
       - name: Prepares for workflow
         run: |
           sed -i "s|local-directory|${{ github.workspace }}|g" .github/classroom/autograding.json
+          more .github/classroom/autograding.json
       - name: Grade homework 💻
         uses: education/autograding@v1
