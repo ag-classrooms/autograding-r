@@ -34,3 +34,6 @@ jobs:
           more .github/classroom/run-grader.sh
       - name: Grade homework 💻
         uses: education/autograding@v1
+      - name: Verification
+        run: |
+           docker run -v "/home/runner/work/autograding-r/autograding-r:/home/rstudio/" agarbuno:gh-grader:4.2.1 Rscript .tests/grade.R
