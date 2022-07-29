@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - ag/docker-build-cache
+    paths:
+      - '**.Rmd'
   workflow_dispatch:
 
 permissions:
