@@ -17,7 +17,7 @@ concurrency:
   
 jobs:
   build:
-    name: Docker build
+    name: Grader Jobs
     runs-on: ubuntu-20.04
     if:      ${{ !contains(github.actor,'classroom' )}}
     env:
