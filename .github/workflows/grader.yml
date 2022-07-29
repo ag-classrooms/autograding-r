@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - ag/docker-build-cache
-    paths:
-      - '**.Rmd'
+    # paths:
+    #   - '**.Rmd'
   workflow_dispatch:
 
 permissions:
@@ -36,6 +36,6 @@ jobs:
           more .github/classroom/run-grader.sh
       - name: Pull docker image
         run: |
-          docker pull agarbuno/grader:4.2.1
+          docker pull agarbuno/grader:beta
       - name: Grade homework 💻
         uses: education/autograding@v1
