@@ -25,14 +25,14 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-      - name: Checks environment
+      - name: Checks environment 📡
         run: |
            echo ${GITHUB_WORKSPACE}
-      - name: Prepares for workflow
+      - name: Relocate within runner 🚧
         run: |
           sed -i "s|local-directory|${{ github.workspace }}|g" .github/classroom/run-grader.sh
           more .github/classroom/run-grader.sh
-      - name: Prepare image
+      - name: Prepare image 🤖
         run: |
           docker run -v "${{ github.workspace }}:/home/rstudio" agarbuno/grader:beta R -e 'renv::restore()'
       - name: Grade homework 💻
