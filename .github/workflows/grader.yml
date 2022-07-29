@@ -34,6 +34,8 @@ jobs:
           more .github/classroom/run-grader.sh
       - name: Prepare image
         run: |
-          docker run -v "${{ github.workspace }}:/home/rstudio"  agarbuno/grader:beta
-      - name: Grade homework 💻
+          docker run -v "${{ github.workspace }}:/home/rstudio" \
+          agarbuno/grader:beta \
+          R -e 'renv::restore()'
+       - name: Grade homework 💻
         uses: education/autograding@v1
