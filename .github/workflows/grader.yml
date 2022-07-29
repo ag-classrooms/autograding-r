@@ -3,9 +3,9 @@ name: Automatic Grader
 on:
   push:
     branches:
-      - ag/docker-build-cache
-    # paths:
-    #   - '**.Rmd'
+      - docker-cache
+    paths:
+      - '**.Rmd'
   workflow_dispatch:
 
 permissions:
