@@ -32,8 +32,8 @@ jobs:
         run: |
           sed -i "s|local-directory|${{ github.workspace }}|g" .github/classroom/run-grader.sh
           more .github/classroom/run-grader.sh
-      - name: Pull docker image
+      - name: Prepare image
         run: |
-          docker pull agarbuno/grader:beta
+          docker run -v "${{ github.workspace }}:/home/rstudio"  agarbuno/grader:beta
       - name: Grade homework 💻
         uses: education/autograding@v1
