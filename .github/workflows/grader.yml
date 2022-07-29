@@ -1,9 +1,9 @@
-name: Docker Build
+name: Automatic Grader
 
 on:
   push:
     branches:
-      - ag/docker-cache
+      - ag/docker-build-cache
   workflow_dispatch:
 
 permissions:
