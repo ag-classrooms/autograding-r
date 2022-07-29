@@ -8,14 +8,8 @@ ENV TARGET_DIR ""
 # Lets declare the work directory ==============================================
 RUN adduser $RSTUDIO_USER sudo
 WORKDIR /home/$RSTUDIO_USER/
-RUN ls -lha 
 
-# Install renv specific version ================================================
-# ENV RENV_VERSION 0.14.0
-# RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
-# RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
-
-# Instalamos herramientas: htop (monitoreo) y librerias que necesita R para
+# Instalamos herramientas: htop (monitoreo) y librerias que necesita R para ====
 # compilar paquetes
 RUN apt-get install --no-install-recommends -qq wget ca-certificates make g++
 RUN apt-get update \
@@ -34,10 +28,8 @@ COPY renv.lock renv.lock
 COPY .Rprofile .Rprofile
 COPY renv/activate.R renv/activate.R
 COPY renv/settings.dcf renv/settings.dcf
-RUN ls -lha
-RUN more renv.lock
-RUN R -e "install.packages('renv')"
 RUN R -e "renv::restore()"
+RUN rm -rf renv.lock .Rprofile renv
 
 # Aseguramos que podemos trabajar desde ~/rstudio/home =========================
 RUN chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/
