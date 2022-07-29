@@ -35,6 +35,7 @@ COPY .Rprofile .Rprofile
 COPY renv/activate.R renv/activate.R
 COPY renv/settings.dcf renv/settings.dcf
 RUN ls -lha
+RUN more renv.lock
 RUN R -e "install.packages('renv')"
 RUN R -e "renv::restore()"
 
