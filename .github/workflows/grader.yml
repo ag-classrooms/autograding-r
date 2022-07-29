@@ -22,8 +22,6 @@ jobs:
     name: Grader Jobs
     runs-on: ubuntu-20.04
     if:      ${{ !contains(github.actor,'classroom' )}}
-    env:
-      RENV_PATHS_ROOT: ~/.local/share/renv
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
