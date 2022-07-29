@@ -3,7 +3,7 @@ name: Docker Build
 on:
   push:
     branches:
-      - docker-cache
+      - main
     paths:
       - Dockerfile
   workflow_dispatch:

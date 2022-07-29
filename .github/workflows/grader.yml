@@ -3,7 +3,7 @@ name: Automatic Grader
 on:
   push:
     branches:
-      - docker-cache
+      - main
     paths:
       - '**.Rmd'
   workflow_dispatch:
