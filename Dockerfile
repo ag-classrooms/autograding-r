@@ -22,8 +22,8 @@ RUN rm -rf /tmp/downloaded_packages  \
 RUN strip /usr/local/lib/R/site-library/*/libs/*.so
 
 # Setup renv workspace =========================================================
-ENV RENV_PATHS_ROOT /home/$RSTUDIO_USER/.renv
-RUN mkdir $RENV_PATHS_ROOT
+ENV RENV_PATHS_ROOT /home/local/.renv
+RUN mkdir -p  $RENV_PATHS_ROOT
 COPY renv.lock renv.lock
 COPY .Rprofile .Rprofile
 COPY renv/activate.R renv/activate.R
