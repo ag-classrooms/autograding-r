@@ -36,7 +36,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: .tests
+          context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/grader:4.2.1
           cache-from: type=gha
