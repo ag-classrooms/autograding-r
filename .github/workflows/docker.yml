@@ -1,0 +1,39 @@
+name: Docker Build
+
+on:
+  push:
+    branches:
+      - ag/docker-cache
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true  
+  
+jobs:
+  build:
+    name: Docker build
+    runs-on: ubuntu-20.04
+    if:      ${{ !contains(github.actor,'classroom' )}}
+    env:
+      RENV_PATHS_ROOT: ~/.local/share/renv
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Checks environment
+        run: |
+           echo ${GITHUB_WORKSPACE}
+      - name: Prepares for workflow
+        run: |
+          sed -i "s|local-directory|${{ github.workspace }}|g" .github/classroom/run-grader.sh
+          more .github/classroom/run-grader.sh
+      - name: Pull docker image
+        run: |
+          docker pull agarbuno/gh-grader:4.2.1
+      - name: Grade homework 💻
+        uses: education/autograding@v1

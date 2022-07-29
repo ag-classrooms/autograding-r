@@ -3,7 +3,7 @@
     {
       "name": "Assignment evaluation",
       "setup": "",
-      "run": "Rscript .tests/grade.R",
+        "run": "bash .github/classroom/run-grader.sh",
       "input": "",
       "output": "",
       "comparison": "included",
