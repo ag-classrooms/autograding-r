@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - ag/docker-build-cache
+    paths:
+      - Dockerfile
   workflow_dispatch:
 
 permissions:
