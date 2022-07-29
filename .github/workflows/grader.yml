@@ -1,0 +1,39 @@
+name: Automatic Grader
+
+on:
+  push:
+    branches:
+      - ag/docker-build-cache
+    # paths:
+    #   - '**.Rmd'
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true  
+  
+jobs:
+  build:
+    name: Grader Jobs
+    runs-on: ubuntu-20.04
+    if:      ${{ !contains(github.actor,'classroom' )}}
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Checks environment
+        run: |
+           echo ${GITHUB_WORKSPACE}
+      - name: Prepares for workflow
+        run: |
+          sed -i "s|local-directory|${{ github.workspace }}|g" .github/classroom/run-grader.sh
+          more .github/classroom/run-grader.sh
+      - name: Prepare image
+        run: |
+          docker run -v "${{ github.workspace }}:/home/rstudio" agarbuno/grader:beta R -e 'renv::restore()'
+      - name: Grade homework 💻
+        uses: education/autograding@v1
