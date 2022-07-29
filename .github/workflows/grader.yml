@@ -34,6 +34,6 @@ jobs:
           more .github/classroom/run-grader.sh
       - name: Pull docker image
         run: |
-          docker pull agarbuno/gh-grader:4.2.1
+          docker pull agarbuno/grader:4.2.1
       - name: Grade homework 💻
         uses: education/autograding@v1

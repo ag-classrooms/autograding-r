@@ -38,6 +38,6 @@ jobs:
         with:
           context: .tests
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/gh-grader:4.2.1
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/grader:4.2.1
           cache-from: type=gha
           cache-to: type=gha,mode=max           
