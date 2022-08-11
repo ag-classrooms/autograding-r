@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Assignment evaluation",
+      "setup": "",
+        "run": "bash .github/classroom/run-grader.sh",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}

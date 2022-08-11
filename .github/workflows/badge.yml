@@ -1,0 +1,31 @@
+name: Setup badge 
+on:
+  push:
+    branches:
+      - feedback
+permissions:
+  contents: write
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true  
+jobs:
+  # Let's change the badge =====================================================
+  repo_setup:
+    runs-on: ubuntu-20.04
+    if:      ${{ contains(github.actor,'classroom' )}}
+    steps:
+      - name: Greeting the bot 🤖
+        run: echo Hello ${{ github.actor }}
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Badge
+        env:
+          HOME_BADGE: ag-classrooms/autograding-r
+        run: |
+          sed -i "s|$HOME_BADGE|${{ github.repository }}|g" README.md
+      - name: Commit 
+        run: |
+          git config --global user.name ${{ github.actor }}
+          git add README.md
+          git commit -m "Updates badge of repo"
+          git push
