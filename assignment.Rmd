@@ -5,7 +5,7 @@ loaded.
 
 ```{r setup}
 
-knitr::opts_chunk$set(purl = FALSE)
+renv::restore()
 
 ```
 
@@ -23,7 +23,7 @@ the assignment.
 
 ```{r}
 
-length(test(100))
+hist(rnorm(10000))
 
 ```
 
