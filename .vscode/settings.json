@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "*.Rmd": "rmd"
-    }
-}
+    },
+    "terminal.integrated.automationProfile.linux": "/bin/zsh",
+} 
