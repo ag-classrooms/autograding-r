@@ -4,6 +4,7 @@ MAINTAINER Alfredo Garbuno Iñigo "alfredo.garbuno@itam.mx"
 # Lets declare some user variables =============================================
 ENV RSTUDIO_USER rstudio
 ENV TARGET_DIR ""
+ENV RUNNING_IN_DOCKER true
 
 # Lets declare the work directory ==============================================
 RUN adduser $RSTUDIO_USER sudo
@@ -36,4 +37,9 @@ RUN rm -rf renv.lock .Rprofile renv
 RUN chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/
 VOLUME [ "/home/$RSTUDIO_USER/$TARGET_DIR" ]
 
+# Good lookin terminals 
+RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
+    -a 'CASE_SENSITIVE="true"' \ 
+    -t robbyrussell \
+    -p git
 
