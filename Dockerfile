@@ -42,5 +42,3 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
     -a 'CASE_SENSITIVE="true"' \ 
     -t robbyrussell \
     -p git
-
-ENTRYPOINT ["/bin/zsh"]
