@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.Rmd": "rmd"
+    },
+    "terminal.integrated.defaultProfile.linux": "zsh"
+}

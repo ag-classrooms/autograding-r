@@ -37,8 +37,8 @@ RUN rm -rf renv.lock .Rprofile renv
 RUN chown -R $RSTUDIO_USER:staff /home/$RSTUDIO_USER/
 VOLUME [ "/home/$RSTUDIO_USER/$TARGET_DIR" ]
 
-# Good lookin terminals 
+# Good lookin terminals ========================================================
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
-    -a 'CASE_SENSITIVE="true"' \ 
+    -a 'CASE_SENSITIVE="true"' \
     -t robbyrussell \
     -p git
