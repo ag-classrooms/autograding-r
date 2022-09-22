@@ -11,7 +11,7 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"REditorSupport.r"
+				"REditorSupport.r",
 				"tomoki1207.pdf"
 			]
 		}
