@@ -19,6 +19,14 @@ RUN apt-get update \
 
 RUN pip3 --version \
     && pip3 install radian
+    
+# Latex ========================================================================
+
+RUN tlmgr install amsmath latex-amsmath-dev iftex kvoptions \
+    ltxcmds kvsetkeys etoolbox xcolor geometry fancyvrb framed booktabs \
+    auxhook bigintcalc bitset etexcmds gettitlestring hycolor hyperref \
+    intcalc kvdefinekeys letltxmacro pdfescape refcount rerunfilecheck \
+    stringenc uniquecounter zapfding pdftexcmds infwarerr epstopdf-pkg mdwtools    
 
 # Clean up =====================================================================
 RUN rm -rf /tmp/downloaded_packages  \
