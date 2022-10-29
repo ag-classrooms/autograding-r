@@ -15,7 +15,7 @@ WORKDIR /home/$RSTUDIO_USER/
 RUN apt-get install --no-install-recommends -qq wget ca-certificates make g++
 RUN apt-get update \
     && apt-get install -y libmagick++-dev htop tree \
-    && apt-get install -y python3-pip
+    && apt-get install -y python3-pip libfontconfig1-dev
 
 RUN pip3 --version \
     && pip3 install radian
