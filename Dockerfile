@@ -29,7 +29,9 @@ RUN tlmgr install amsmath latex-amsmath-dev iftex kvoptions \
     stringenc uniquecounter zapfding pdftexcmds infwarerr epstopdf-pkg mdwtools    
 
 # Clean up =====================================================================
-RUN rm -rf /tmp/downloaded_packages  \
+RUN apt-get clean all \
+    && apt-get purge \
+    && rm -rf /tmp/downloaded_packages  \
     && rm -rf /var/lib/apt/lists/*
 
 RUN strip /usr/local/lib/R/site-library/*/libs/*.so
