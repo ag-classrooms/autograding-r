@@ -44,7 +44,7 @@ COPY .Rprofile .Rprofile
 COPY renv/activate.R renv/activate.R
 COPY renv/settings.dcf renv/settings.dcf
 RUN R -e "renv::restore()"
-RUN install2.r --error rmarkdown httpgd
+RUN install2.r --error rmarkdown httpgd languageserver
 RUN rm -rf renv.lock .Rprofile renv
 
 # Aseguramos que podemos trabajar desde ~/rstudio/home =========================
