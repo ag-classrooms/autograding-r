@@ -12,7 +12,8 @@
 		"vscode": {
 			"extensions": [
 				"REditorSupport.r",
-				"tomoki1207.pdf"
+				"tomoki1207.pdf",
+				"christian-kohler.path-intellisense"
 			]
 		}
 	}
