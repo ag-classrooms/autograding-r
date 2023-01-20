@@ -28,12 +28,21 @@ jobs:
       - name: Checks environment 📡
         run: |
            echo ${GITHUB_WORKSPACE}
+           echo "-----------------"
+           echo ${github.workspace}
       - name: Relocate within runner 🚧
         run: |
           sed -i "s|local-directory|${{ github.workspace }}|g" .github/classroom/run-grader.sh
-          more .github/classroom/run-grader.sh
+          sed -i "s|local-directory|${{ github.workspace }}|g" .github/classroom/run-compiler.sh
       - name: Prepare image 🤖
         run: |
           docker run -v "${{ github.workspace }}:/home/rstudio" agarbuno/grader:beta R -e 'renv::restore()'
       - name: Grade homework 💻
         uses: education/autograding@v1
+      - name: Add pdf file 📕
+        run: |
+          mv entrega.pdf entrega-${{github.actor}}.pdf
+          git config --global user.name ${{ github.actor }}
+          git add entrega*.pdf
+          git commit -m "Agrega entrega a repositorio"
+          git push
