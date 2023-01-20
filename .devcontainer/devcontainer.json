@@ -11,9 +11,11 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"REditorSupport.r",
-				"tomoki1207.pdf",
-				"christian-kohler.path-intellisense"
+			    "REditorSupport.r",
+			    "tomoki1207.pdf",
+			    "christian-kohler.path-intellisense",
+                            "ms-vscode-remote.remote-containers",
+			    "ms-azuretools.vscode-docker"
 			]
 		}
 	}
